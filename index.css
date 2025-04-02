@@ -1,5 +1,8 @@
 #dodger {
-  background-color: white;
+  background-image: url(/img/pacman.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   height: 20px;
   position: absolute;
   width: 40px;

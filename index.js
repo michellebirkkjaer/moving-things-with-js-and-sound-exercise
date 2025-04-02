@@ -5,6 +5,10 @@ const dodger = document.getElementById("dodger");
 const movementSound = document.getElementById("movementSound");
 const gameoverSound = document.getElementById("gameoverSound");
 
+const containerSize = 400;
+const dodgerSize = 20;
+dodger.style.left = `${(containerSize - dodgerSize) / 2}px`;
+dodger.style.bottom = `${(containerSize - dodgerSize) / 2}px`;
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "ArrowLeft") {
