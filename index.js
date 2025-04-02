@@ -3,6 +3,7 @@
 
 const dodger = document.getElementById("dodger");
 const movementSound = document.getElementById("movementSound");
+const gameoverSound = document.getElementById("gameoverSound");
 
 
 document.addEventListener("keydown", function (e) {
@@ -25,6 +26,11 @@ function playSoundOnMovement() {
     movementSound.play();
 }
 
+function playGameOverSound() {
+    gameoverSound.currentTime = 0;
+    gameoverSound.play();
+}
+
 
 function moveDodgerLeft() {
     const leftNumbers = dodger.style.left.replace("px", "");
@@ -32,15 +38,16 @@ function moveDodgerLeft() {
   
     if (left > 0) {
       dodger.style.left = `${left - 1}px`;
-    }
-    playSoundOnMovement();
+      playSoundOnMovement();}
+      else {
+        playGameOverSound();
+      }
   }
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "ArrowLeft") {
       moveDodgerLeft();
-    }
-    playSoundOnMovement();
+    playSoundOnMovement();}
   });
 
 
@@ -51,8 +58,10 @@ function moveDodgerLeft() {
   
     if (left < 360) { 
       dodger.style.left = `${left + 1}px`;
-    }
-    playSoundOnMovement();
+      playSoundOnMovement();}
+      else {
+        playGameOverSound();
+      }
   }
 
   function moveDodgerUp() {
@@ -60,8 +69,10 @@ function moveDodgerLeft() {
   const bottom = parseInt(bottomNumbers, 10);
   if (bottom < 380) { // container height er 400px
     dodger.style.bottom = `${bottom + 1}px`;
-    }
-    playSoundOnMovement();
+    playSoundOnMovement();}
+    else {
+        playGameOverSound();
+      }
   }
 
   function moveDodgerDown() {
@@ -69,7 +80,9 @@ function moveDodgerLeft() {
     const bottom = parseInt(bottomNumbers, 10);
     if (bottom > 0) { // forhindrer at den kommer under containeren
       dodger.style.bottom = `${bottom - 1}px`;
-    }
-    playSoundOnMovement();
+      playSoundOnMovement();}
+      else {
+        playGameOverSound();
+      }
   }
 
